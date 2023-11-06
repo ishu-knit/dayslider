@@ -1,0 +1,8 @@
+function set(p) {
+  return (
+    setX(parseInt(p.target.value))
+  )
+}
+
+here in above code p.target.value is string to convert it to 
+int use parseInt()
