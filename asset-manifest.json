@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/dayslider/static/css/main.073c9b0a.css",
+    "main.js": "/dayslider/static/js/main.a79cbe4a.js",
+    "static/js/787.6cfbe5ff.chunk.js": "/dayslider/static/js/787.6cfbe5ff.chunk.js",
+    "index.html": "/dayslider/index.html",
+    "main.073c9b0a.css.map": "/dayslider/static/css/main.073c9b0a.css.map",
+    "main.a79cbe4a.js.map": "/dayslider/static/js/main.a79cbe4a.js.map",
+    "787.6cfbe5ff.chunk.js.map": "/dayslider/static/js/787.6cfbe5ff.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.a79cbe4a.js"
+  ]
+}
