@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './App.css';
-import Dslider from './Dslider';
-
+// import Dslider from './Dslider';
+import YourComponent from './try1';
 
  function App() {
 
@@ -10,9 +10,10 @@ import Dslider from './Dslider';
   return (
     <div className="App">
 
-      <Dslider />
-
- 
+      {/* <Dslider /> */}
+<hr>
+</hr>
+<YourComponent /> 
     </div>
   );
 }
