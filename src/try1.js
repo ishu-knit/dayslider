@@ -36,14 +36,13 @@ const marks = [
 
 
 function YourComponent() {
-  // Step 1: Create state variables
+  
   const [rangeValue, setRangeValue] = useState(0); // Set the initial value for the range
   const [textValue, setTextValue] = useState('');
 const [num, setNum] = useState(0)
  
-  // Step 3: Create e handler functions
+
   const handleRangeChange = (event) => {
-    // Step 3: Update the state variable for the range input
     setRangeValue(event.target.value);
   };
 
@@ -113,7 +112,7 @@ setTextValue(num)
 // console.log("num:- ",num)
 // console.log("range:- ",rangeValue)
 
-    // Optionally, you can update the range input based on the text input
+
     const parsedValue = parseInt(e.target.value, 10);
     if (!isNaN(parsedValue)) {
         // console.log(parsedValue)
