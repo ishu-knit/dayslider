@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './App.css';
-// import Dslider from './Dslider';
+import Dslider from './Dslider';
 import YourComponent from './try1';
 
  function App() {
@@ -8,12 +8,13 @@ import YourComponent from './try1';
 
 
   return (
-    <div className="App">
+    <div className='App '>
 
       {/* <Dslider /> */}
-<hr>
-</hr>
+<div style={{margin:"50px"}} className='border border-4 border-primary'>
 <YourComponent /> 
+
+</div>
     </div>
   );
 }
