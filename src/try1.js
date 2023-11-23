@@ -39,53 +39,50 @@ function YourComponent() {
 
   const handleRangeChange = (event) => {
 
-    let mn =0 
+    let minValue =0 
     let mx =100
-    let ad = 0
+    let additionValue = 0
 
     // console.log( event.target.value)
     
     if (event.target.value >= 0 && event.target.value < 25) {
 
-      mn = 30
+      minValue = 30
       mx = 60
-      ad = 0
+      additionValue = 0
 
       
     } 
     else if (event.target.value >= 25 && event.target.value <= 50) {
 
-      mn = 60
+      minValue = 60
       mx = 120
-      ad = 25
+      additionValue = 25
  
     } else if (event.target.value >= 50 && event.target.value <= 75) {
 
-      mn = 120
+      minValue = 120
       mx = 365
-      ad = 50
+      additionValue = 50
     } else if (event.target.value >= 75 && event.target.value <= 100) {
-      // setRangeValue(75);
+     
 
-
-      // console.log("in 75-100")
-      mn = 365
+      minValue = 365
       mx = 365*3
-      ad = 75
+      additionValue = 75
 
     } 
 
     
     
-    const ans = ((rangeValue-ad)*(mx-mn))/25 + mn
+    const ans = ((rangeValue-additionValue)*(mx-minValue))/25 + minValue
+
     let x = Math.round(ans)
     console.log("ans: ",ans ,x)
 
-    // to chnage value of input text field
+    // to change value of input text field
 
     setTextValue(x)
-    
-    console.log("others",mn,mx,ad)
     setRangeValue(event.target.value);
 
   };
@@ -100,38 +97,38 @@ function YourComponent() {
 
 
 
-    let mx = 100;
-    let mn = 0;
-    let ad = 0;
+    let maxValue = 100;
+    let minValue = 0;
+    let additionValue = 0;
 
     // 30-60
 
     if (e.target.value >= 30 && e.target.value < 60) {
-      ad = 0;
-      mx = 60;
-      mn = 30;
+      additionValue = 0;
+      maxValue = 60;
+      minValue = 30;
     }
     // 60-120
     else if (e.target.value >= 60 && e.target.value <= 120) {
-      ad = 25;
-      mn = 60;
-      mx = 120;
+      additionValue = 25;
+      minValue = 60;
+      maxValue = 120;
     }
     // 120-1
     else if (e.target.value >= 120 && e.target.value <= 365) {
-      ad = 50;
-      mn = 120;
-      mx = 365;
+      additionValue = 50;
+      minValue = 120;
+      maxValue = 365;
     }
 
     // 1-3
     else if (e.target.value >= 365 && e.target.value <= 365 * 3) {
-      ad = 75;
-      mn = 365;
-      mx = 365 * 3;
+      additionValue = 75;
+      minValue = 365;
+      maxValue = 365 * 3;
     }
 
-    const sol = ad + (25 * (e.target.value - mn)) / (mx - mn);
+    const sol = additionValue + (25 * (e.target.value - minValue)) / (maxValue - minValue);
     const intsol = parseInt(sol)
 
 
