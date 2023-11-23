@@ -35,6 +35,8 @@ function YourComponent() {
   const [textValue, setTextValue] = useState("");
   const [num, setNum] = useState(0);
 
+
+
   const handleRangeChange = (event) => {
 
     let mn =0 
@@ -45,60 +47,62 @@ function YourComponent() {
     
     if (event.target.value >= 0 && event.target.value < 25) {
       // setRangeValue(0);
-      mn = 0
-      mx = 25
+      // console.log("in 0-25")
+      mn = 30
+      mx = 60
       ad = 0
       // setRangeValue(sol)
-
+      
     } 
     else if (event.target.value >= 25 && event.target.value <= 50) {
+      // console.log("in 25-50")
       // setRangeValue(25);
-      mn = 25
-      mx = 50
+      mn = 60
+      mx = 120
       ad = 25
+      // setTextValue(900)
     } else if (event.target.value >= 50 && event.target.value <= 75) {
+      // console.log("in 50-75")
       // setRangeValue(50);
-      mn = 50
-      mx = 75
+      // setTextValue()
+      mn = 120
+      mx = 365
       ad = 50
     } else if (event.target.value >= 75 && event.target.value <= 100) {
       // setRangeValue(75);
-      mn = 75
-      mx = 100
+
+
+      // console.log("in 75-100")
+      mn = 365
+      mx = 365*3
       ad = 75
 
     } 
 
     
-    const sol  = (num-ad)*(mx-mn)/25 + mn
-
-    console.log(sol)
     
+    const ans = ((rangeValue-ad)*(mx-mn))/25 + mn
+    let x = Math.round(ans)
+    console.log("ans: ",ans ,x)
+
+    // to chnage value of input text field
+
+    setTextValue(x)
+    
+    console.log("others",mn,mx,ad)
     setRangeValue(event.target.value);
-  
 
   };
 
 
 
 
-  useEffect(() => {
-    // console.log(
-    //   "TextValue:- ",
-    //   textValue,
-    //   "RangeValue:-",
-    //   rangeValue,
-    //   "num:- ",
-    //   num
-    // );
-    setRangeValue(num);
-  }, [textValue]);
-
-
 
 
   const handleTextChange = (e) => {
     // start
+
+
 
     let mx = 100;
     let mn = 0;
@@ -132,13 +136,17 @@ function YourComponent() {
     }
 
     const sol = ad + (25 * (e.target.value - mn)) / (mx - mn);
-    setNum(parseInt(sol));
+    const intsol = parseInt(sol)
+    // setNum(intsol);
+    console.log("int sol ",intsol)
 
     // end
+  
 
     setTextValue(e.target.value);
 
-    const parsedValue = parseInt(e.target.value, 10);
+const parsedValue = intsol
+    console.log("parsedValue ",parsedValue)
     if (!isNaN(parsedValue)) {
       setRangeValue(parsedValue);
     } else {
@@ -171,7 +179,7 @@ function YourComponent() {
         placeholder="Enter a value"
       />
 
-      <p>Current value: {rangeValue}</p>
+      <p>rangeValue: {rangeValue}</p>
     </div>
   );
 }
