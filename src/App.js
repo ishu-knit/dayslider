@@ -8,11 +8,8 @@ import YourComponent from './try1';
 
   return (
     <div className='App '>
-
-     
 <div style={{margin:"50px"}} className='border border-4 border-primary'>
 <YourComponent /> 
-
 </div>
     </div>
   );
