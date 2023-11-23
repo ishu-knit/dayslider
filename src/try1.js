@@ -178,8 +178,6 @@ const parsedValue = intsol
         onChange={handleTextChange}
         placeholder="Enter a value"
       />
-
-      <p>rangeValue: {rangeValue}</p>
     </div>
   );
 }
