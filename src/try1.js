@@ -33,7 +33,7 @@ const marks = [
 function YourComponent() {
   const [rangeValue, setRangeValue] = useState(0); // Set the initial value for the range
   const [textValue, setTextValue] = useState("");
-  const [num, setNum] = useState(0);
+
 
 
 
@@ -46,25 +46,21 @@ function YourComponent() {
     // console.log( event.target.value)
     
     if (event.target.value >= 0 && event.target.value < 25) {
-      // setRangeValue(0);
-      // console.log("in 0-25")
+
       mn = 30
       mx = 60
       ad = 0
-      // setRangeValue(sol)
+
       
     } 
     else if (event.target.value >= 25 && event.target.value <= 50) {
-      // console.log("in 25-50")
-      // setRangeValue(25);
+
       mn = 60
       mx = 120
       ad = 25
-      // setTextValue(900)
+ 
     } else if (event.target.value >= 50 && event.target.value <= 75) {
-      // console.log("in 50-75")
-      // setRangeValue(50);
-      // setTextValue()
+
       mn = 120
       mx = 365
       ad = 50
@@ -137,8 +133,7 @@ function YourComponent() {
 
     const sol = ad + (25 * (e.target.value - mn)) / (mx - mn);
     const intsol = parseInt(sol)
-    // setNum(intsol);
-    console.log("int sol ",intsol)
+
 
     // end
   
