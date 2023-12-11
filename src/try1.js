@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import Slider from "@mui/material/Slider";
 
@@ -27,75 +27,45 @@ const marks = [
   },
 ];
 
-
-
-
 function YourComponent() {
   const [rangeValue, setRangeValue] = useState(0); // Set the initial value for the range
   const [textValue, setTextValue] = useState("");
 
+  const HandleRangeChange = (event) => {
+    let minValue = 0;
+    let maxValue = 100;
+    let additionValue = 0;
 
+    const newValue = event.target.value;
 
+    if (newValue >= 0 && newValue < 25) {
+      minValue = 30;
+      maxValue = 60;
+      additionValue = 0;
+    } else if (newValue >= 25 && newValue <= 50) {
+      minValue = 60;
+      maxValue = 120;
+      additionValue = 25;
+    } else if (newValue >= 50 && newValue <= 75) {
+      minValue = 120;
+      maxValue = 365;
+      additionValue = 50;
+    } else if (newValue >= 75 && newValue <= 100) {
+      minValue = 365;
+      maxValue = 365 * 3;
+      additionValue = 75;
+    }
 
-  const handleRangeChange = (event) => {
+    const ans = ((newValue - additionValue) * (maxValue - minValue)) / 25 + minValue;
 
-    let minValue =0 
-    let mx =100
-    let additionValue = 0
+    let x = Math.round(ans);
 
-    // console.log( event.target.value)
-    
-    if (event.target.value >= 0 && event.target.value < 25) {
-
-      minValue = 30
-      mx = 60
-      additionValue = 0
-
-      
-    } 
-    else if (event.target.value >= 25 && event.target.value <= 50) {
-
-      minValue = 60
-      mx = 120
-      additionValue = 25
- 
-    } else if (event.target.value >= 50 && event.target.value <= 75) {
-
-      minValue = 120
-      mx = 365
-      additionValue = 50
-    } else if (event.target.value >= 75 && event.target.value <= 100) {
-     
-
-      minValue = 365
-      mx = 365*3
-      additionValue = 75
-
-    } 
-
-    
-    
-    const ans = ((rangeValue-additionValue)*(mx-minValue))/25 + minValue
-
-    let x = Math.round(ans)
-    console.log("ans: ",ans ,x)
-
-    // to change value of input text field
-
-    setTextValue(x)
-    setRangeValue(event.target.value);
-
+    setTextValue(x);
+    setRangeValue(newValue);
   };
-
-
-
-
-
 
   const handleTextChange = (e) => {
     // start
-
-
 
     let maxValue = 100;
     let minValue = 0;
@@ -128,23 +98,33 @@ function YourComponent() {
       maxValue = 365 * 3;
     }
 
-    const sol = additionValue + (25 * (e.target.value - minValue)) / (maxValue - minValue);
-    const intsol = parseInt(sol)
-
+    const sol =
+      additionValue +
+      (25 * (e.target.value - minValue)) / (maxValue - minValue);
+    const intsol = parseInt(sol);
 
     // end
-  
 
     setTextValue(e.target.value);
 
-const parsedValue = intsol
-    console.log("parsedValue ",parsedValue)
+    const parsedValue = intsol;
+
     if (!isNaN(parsedValue)) {
-      setRangeValue(parsedValue);
-    } else {
+      
+      // setRangeValue(parsedValue);
+    
+      setRangeValue((pre)=>{
+        if (pre!==parsedValue) 
+        {return parsedValue}
+        return pre
+      })
+    }
+    
+    else {
       setRangeValue(0);
     }
   };
+
 
   return (
     <div className="mx-5 my-5 border border-4 border-primary">
@@ -152,7 +132,8 @@ const parsedValue = intsol
         <Slider
           aria-label="Custom marks"
           value={rangeValue}
-          onChange={handleRangeChange}
+          onChange={HandleRangeChange}
+      
           // valueLabelDisplay="auto"
           // step={10}
           // value={90}
@@ -170,6 +151,8 @@ const parsedValue = intsol
         onChange={handleTextChange}
         placeholder="Enter a value"
       />
+      <br />
+      {textValue}
     </div>
   );
 }
